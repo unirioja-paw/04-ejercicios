@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAW</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+
+  <script type="text/javascript">
+    // Estructura de datos (array de objetos) para contener
+    // los datos de los libros
+    let model = [
+      { titulo: 'El Quijote', autor: 'M. de Cervantes', precio: 20 },
+      { titulo: 'Hamlet', autor: 'W. Shakespeare', precio: 20 },
+    ];
+    window.addEventListener('load', function () {
+      muestraLibros();
+      // Manejador de click para el botón de añadir nuevo libro
+      form1.add.addEventListener('click', aniadeLibro)
+    });
+    function aniadeLibro(evt) {
+      evt.preventDefault(); // Evita el envío del formulario
+      // Si no se ha escrito nada en el titulo, nos vamos
+      if (!form1.N_titulo.value)
+        return
+      // Añade los datos del nuevo libro al model
+      model.push(
+        {
+          titulo: form1.N_titulo.value,
+          autor: form1.N_autor.value,
+          precio: form1.N_precio.value
+        }
+      )
+      // Vuelve a mostrar los libros (con el nuevo añadido)
+      muestraLibros()
+    }
+    function muestraLibros() {
+      // Es posible que el elemento que contiene los libros ya exista
+      let lista = document.getElementById('lista')
+      // Si no existe, lo creamos
+      if (!lista) {
+        lista = document.createElement('tr')
+        lista.id = 'lista'
+        document.querySelector('table').appendChild(lista)
+        // Delegación de eventos de los input radio que contendrá
+        lista.addEventListener('change', muestraDetalle)
+      }
+      // Hacemos el html de la lista de los libros
+      let html = '<td colspan="4">'
+      // Atención: el value de cada input-radio es el índice de su libro correspondiente
+      // en el array model
+      model.forEach((l, i) => html += `<input type="radio" name="libro" value="${i}"> ${l.titulo}<br>`)
+      html += '</td>'
+      // ... y lo mostramos
+      lista.innerHTML = html
+      // Si estuviésemos mostrando los detalles de un libro, lo limpiamos
+      limpiaDetalle()
+    }
+    function muestraDetalle(evt) {
+      let input = evt.target
+      // Si el evento no viene de un input-radio nos vamos
+      if (input.nodeName != 'INPUT')
+        return;
+      // Es posible que el elemento que contiene el detalle del libro ya exista
+      let detalle = document.getElementById('detalle')
+      // Si no existe, lo creamos
+      if (!detalle) {
+        detalle = document.createElement('detalle')
+        detalle.id = 'detalle'
+        document.body.appendChild(detalle)
+      }
+      // Hacemos el html de la lista del libro a mostrar
+      // Sabemos el libro a mostrar por el valor del input pulsado
+      // El value de cada input-radio es el índice de su libro correspondiente
+      // en el array model
+      let html = '<h2>Detalle del libro</h2>'
+      html += `Titulo: ${model[input.value].titulo}<br>`
+      html += `Autor: ${model[input.value].autor}<br>`
+      html += `Precio: ${model[input.value].precio} €<br>`
+      detalle.innerHTML = html
+    }
+    
+    function limpiaDetalle() {
+      // Vaciamos el contenido del elemento que muestra el detalle de un libro
+      let detalle = document.getElementById('detalle')
+      if (detalle)
+        detalle.innerHTML = ''
+    }
+
+  </script>
+
+</head>
+
+<body>
+  <form id="form1" name="form1" action="">
+    <table>
+      <tr>
+        <th><label for="N_titulo">Titulo</label></th>
+        <th><label for="N_autor">Autor</label></th>
+        <th><label for="N_precio">Precio</label></th>
+      </tr>
+      <tr>
+        <td><input name="N_titulo" type="text" id="N_titulo" /></td>
+        <td><input name="N_autor" type="text" id="N_autor" /></td>
+        <td><input name="N_precio" type="text" id="N_precio" /></td>
+        <td><input name="add" type="submit" value="Añade" /></td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html>

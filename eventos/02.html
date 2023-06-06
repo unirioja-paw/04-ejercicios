@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAW</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <script type="text/javascript">
+    window.onload = function () {
+      var txt1 = elForm.txt1;
+      // TODO:
+      // txt1.onfocus = ¿ ponRojo;    o ponRojo(); ?
+      // txt1.onblur = ¿ ponBlanco;  o ponBlanco(); ?
+    }
+
+
+
+
+    function ponRojo(evento) {
+      var target = evento.target
+      target.style.color = "white";
+      target.style.backgroundColor = "red";
+      // ¿Funcionará aquí this? ¿Qué será this aqui?
+    }
+
+    function ponBlanco(evento) {
+      var target = evento.target
+      target.style.color = "black";
+      target.style.backgroundColor = "white";
+      // ¿Funcionará aquí this? ¿Qué será this aqui?
+    }
+
+  </script>
+
+
+</head>
+
+<body>
+  <form name="elForm">
+    <fieldset>
+      <legend>Bloque 1</legend>
+      <p><label for="txt1">Texto 1</label><input type="text" id="txt1" name="txt1" value="" /></p>
+      <p><label for="txt2">Texto 2</label><input type="text" id="txt2" name="txt2" value="" /></p>
+      <p><label for="txt3">Texto 3</label><input type="text" id="txt3" name="txt3" value="" /></p>
+      <p><label for="txt4">Texto 4</label><input type="text" id="txt4" name="txt4" value="" /></p>
+      <p><label for="sel1">Combo 1</label>
+        <select name="sel1" id="sel1">
+          <option value="1">Uno</option>
+          <option value="2">Dos</option>
+        </select>
+      </p>
+    </fieldset>
+    <fieldset>
+      <legend>Bloque 2</legend>
+      <p><label for="txt5">Texto 5</label><input type="text" id="txt5" name="txt5" value="" /></p>
+      <p><label for="txt6">Texto 6</label><input type="text" id="txt6" name="txt6" value="" /></p>
+      <p><label for="txt7">Texto 7</label><input type="text" id="txt7" name="txt7" value="" /></p>
+      <p><label for="txt8">Texto 8</label><input type="text" id="txt8" name="txt8" value="" /></p>
+      <p><label for="txt9">Texto 9</label><input type="text" id="txt9" name="txt9" value="" /></p>
+    </fieldset>
+  </form>
+
+
+</body>
+
+</html>

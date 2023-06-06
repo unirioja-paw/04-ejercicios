@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAW</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+
+  <script type="text/javascript">
+    // Estructura de datos (array de objetos) para contener 
+    // los datos de los libros
+    let model = [
+      { titulo: 'El Quijote', autor: 'M. de Cervantes', precio: 20 },
+      { titulo: 'Hamlet', autor: 'W. Shakespeare', precio: 20 },
+    ];
+
+    window.addEventListener('load', function () {
+      // Añadir dinamicamente una fila con una celda (col-span 4)
+      // con la lista de libros
+      // Por cada libro un input-radio: <input type="radio" name="libro" value="0"> TITULO<br>
+
+      // Al hacer clic en uno de los input-radio se debe mostrar 
+      // el detalle del libro debajo 
+
+      // El botón del formulario debe añadir un nuevo libro y
+      // actualizar la lista
+    });
+
+
+  </script>
+
+</head>
+
+<body>
+  <form id="form1" name="form1" action="">
+    <table>
+      <tr>
+        <th><label for="N_titulo">Titulo</label></th>
+        <th><label for="N_autor">Autor</label></th>
+        <th><label for="N_precio">Precio</label></th>
+      </tr>
+      <tr>
+        <td><input name="N_titulo" type="text" id="N_titulo" /></td>
+        <td><input name="N_autor" type="text" id="N_autor" /></td>
+        <td><input name="N_precio" type="text" id="N_precio" /></td>
+        <td><input name="add" type="submit" value="Añade" /></td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html>

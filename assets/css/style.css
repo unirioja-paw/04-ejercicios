@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;1,500&display=swap');
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    color: blue;
+    font-weight: bold;
+    font-size: 48px;
+}
+
+h2 {
+    color: green;
+    font-weight: bold
+}
+
+h3 {
+    color: brown;
+    font-weight: bold
+}
+
+.image-wrapper {
+    text-align: center;
+}
+
+.image-wrapper img {
+    box-shadow: 0 0 10px #aaa;
+    width: 85%;
+}
+
+.quote {
+    font-size: 48px;
+    font-weight: 600;
+}
+
+.quote-text {
+    font-size: 32px;
+    color: hsl(264, 65%, 39%);
+}
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+
+blockquote p {
+    display: inline;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table td {  border: 1px solid purple; padding: .3em;}
+
+.signup-form-wrapper {
+    background-color: #EEF0F6;
+    padding: 10px 20px;
+    color: #313431;
+}
+
+.signup-form-wrapper h2 {
+    color: #313431;
+    font-size: 48px;
+}
+
+.signup-form_footer {
+    margin: 20px 0;
+}
